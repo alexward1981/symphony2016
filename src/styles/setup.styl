@@ -1,0 +1,164 @@
+/**
+ * Setup
+ *
+ * Setting up the grid and primary styles
+ *
+ **/
+
+body {
+  ff-body();
+  background: url(images/paper.png) repeat;
+  font-size: $baseFont;
+}
+
+h1,
+h2,
+h3 {
+  ff-title();
+  color: $primary;
+  a {
+    color: currentColor;
+  }
+}
+
+a {
+  color: $linkColor;
+  &:hover {
+    $linkHoverColor;
+  }
+}
+
+p {
+  line-height: $lineHeight;
+  margin-bottom: $lineHeight;
+}
+
+.skip-link {
+  position: absolute;
+  left: -100%;
+  top: -100%;
+}
+
+.wrapper {
+  +above(l) {
+   center(1280px);
+  }
+
+  > header {
+    overflow: hidden
+    position: relative
+    background-color: #e0deda;
+    background: url(images/wallpaper-pattern.jpg)
+    text-align: center
+    padding: 1rem 0;
+    box-shadow: 0 0 10px rgba(#000, .6);
+    h1 {
+      position: absolute
+      left: 2rem;
+      top: 1rem;
+      font-size: 8rem;
+      text-shadow: 0px 3px 0px lighten($primary, 25%),
+              0px -14px 10px rgba(0, 0, 0, 0.15),
+              0px -24px 2px rgba(0, 0, 0, 0.1),
+              0px -34px 30px rgba(0, 0, 0, 0.1);
+    }
+    .blog-subtitle {
+      position: absolute;
+      left: 2rem;
+      top: 9rem;
+      z-index: 2;
+      font-size: 2rem;
+      font-weight: bold;
+      color #fff;
+    }
+
+    img {
+      position: relative;
+      col(1 / 5);
+      float: right;
+      z-index: 1;
+
+    }
+    +above(m) {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute
+        left: 0;
+        bottom: 0;
+        height: 3rem;
+        width: 100%;
+        background: url(images/floor-pattern.jpg);
+        background-size: contain;
+
+      }
+    }
+  }
+
+
+  > .navigation {
+    text-align: center;
+    li {
+      display: inline-block;
+      padding: 1rem 1rem 0;
+      font-size: 1.6rem;
+      font-weight: bold
+      &:not(:last-of-type) {
+        &:after {
+          content: '|';
+          margin: 0 0 0 2.1rem;
+
+        }
+      }
+    }
+  }
+}
+.main-area {
+  background-color: #fff;
+  col(1);
+  padding: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  > header {
+    h1 {
+      font-size: 3rem
+    }
+  .archive-meta {
+    margin-bottom: 1rem
+  }
+    +above(886px) {
+      position: absolute
+      top: 15rem;
+
+      .archive-meta {
+        col(1/2);
+        color: #fff;
+      }
+    }
+
+  }
+}
+
+footer {
+  cf();
+  col(1);
+  text-align: center
+  color: darken($primary-con, 90%);
+  padding: 1rem;
+  background-color: lighten($primary, 20%);
+  +above(m) {
+    text-align: left;
+  }
+  a {
+    color: currentColor;
+  }
+  .copy {
+    stack();
+    +above(m) {
+      unstack();
+      float:right;
+    }
+  }
+}
+
+

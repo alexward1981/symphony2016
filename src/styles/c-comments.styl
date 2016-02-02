@@ -1,0 +1,57 @@
+/* The comments component */
+.c-comments {
+  h2 {
+    font-size: $innercore;
+    margin-bottom: $vspacing;
+  }
+
+  p {
+    clear:both;
+    padding: $spacing 0;
+  }
+
+  .comment {
+    padding: $spacing;
+    &:nth-child(odd) {
+      background: #f0f0f0;
+    }
+  }
+
+  .comment-author {
+    float: left;
+  }
+  .comment-meta {
+    float: right;
+  }
+  .formcontainer {
+    label {
+      display: inline-block
+      padding: $spacing 0;
+    }
+    .required {
+
+    }
+    input, select, textarea {
+      padding: ($spacing /2);
+      border: 1px solid #ccc;
+    }
+
+
+
+    .form-submit {
+      padding: $spacing 0;
+
+      input {
+        cursor:pointer;
+        border-radius: $brad;
+        padding: ($spacing);
+        border: 0;
+        color: #fff
+        background: $primary;
+        &:hover {
+          background: lighten($primary, 10%)
+        }
+      }
+    }
+  }
+}

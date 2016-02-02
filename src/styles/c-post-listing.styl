@@ -1,0 +1,118 @@
+/* The post listing component */
+.c-post-listing {
+  position: relative
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 3px rgba(#000, .3)
+  border-radius: $brad;
+  margin-bottom: $hspacing * 3
+  background: #fff;
+
+  &:before, &:after {
+    z-index: -1;
+    display: block
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    box-shadow: 0 15px 10px rgba(#000, .4);
+    transform: rotate(-3deg);
+  }
+  &:after {
+    left: auto;
+    right: 10px;
+    transform: rotate(3deg);
+  }
+  +above(m) {
+    col(1/2, cycle:2)
+    &:before, &:after {
+      display: block
+    }
+  }
+  +above(l) {
+    col(1/3, uncycle:2, cycle:3)
+    &:before, &:after {
+      display: block
+    }
+  }
+  img {
+    max-width: 100%
+    height: auto;
+    margin-bottom: $vspacing;
+  }
+
+  &.no-image {
+    +above(m) {
+      margin-top: 5rem;
+    }
+  }
+  header {
+    margin-bottom: $hspacing
+
+    // Add a strip to the top, this will later be coloured to color-code categories
+    &:before {
+      content: '';
+      display: block
+      height: 1rem;
+      width: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      z-index:5;
+      box-shadow: 0 0 3px rgba(#000, .2)
+    }
+  }
+  h1 {
+    font-size: 2rem
+    margin-bottom: $hspacing
+  }
+  &__entry-date {
+    font-size: 1.4rem;
+  }
+
+  &__entry-content {
+    padding: 2rem;
+  }
+
+  &__read-more {
+    margin: 1rem 0 0
+    display: inline-block
+  }
+
+  // Add a colour strip to the top for categories
+
+  &.category {
+    &-wellness {
+      header:before {
+        background-color: $wellness;
+      }
+    }
+    &-blips {
+      header:before {
+        background-color: $blips
+      }
+    }
+    &-rise-against {
+      header:before {
+        background-color: $rise-against;
+      }
+    }
+    &-tech {
+      header:before {
+        background-color: $tech;
+      }
+    }
+    &-scribblings {
+      header:before {
+        background-color: $scribblings;
+      }
+    }
+    &-insanity {
+      header:before {
+        background-color: $insanity;
+      }
+    }
+  }
+}
